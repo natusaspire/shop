@@ -1,0 +1,39 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Client</th>
+          <th>Products</th>
+          <th>Date</th>
+          <th>Total price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.client }}</td>
+          <td>
+            {% for product in order.products %}
+            {{ product }}<br>
+            {% endfor %}
+          </td>
+          <td>{{ order.date_and_time }}</td>
+          <td>US${{ order.total_price / 100 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

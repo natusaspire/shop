@@ -1,0 +1,73 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+Stats
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Manufacturer</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stats in total_by_manufacturer %}
+            <tr>
+              <td>{{ stats[0] }}</td>
+              <td>US${{ stats[1] / 100 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stats in total_by_category %}
+            <tr>
+              <td>{{ stats[0] }}</td>
+              <td>US${{ stats[1] / 100 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stats in total_by_month %}
+            <tr>
+              <td>{{ stats[0] }}</td>
+              <td>US${{ stats[1] / 100 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

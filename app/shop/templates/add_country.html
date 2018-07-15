@@ -1,0 +1,17 @@
+{% extends 'bootstrap/base.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+Add country
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+  <form action="{{ url_for('.add_country') }}" method="POST" id="form">
+    {{ wtf.quick_form(form) }}
+    <input class="btn btn-primary" type="submit" value="Add" form="form">
+  </form>
+</div>
+{% endblock %}

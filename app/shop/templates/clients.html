@@ -1,0 +1,33 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+Clients
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Phone number</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for client in clients %}
+        <tr>
+          <td>{{ client.first_name }}</td>
+          <td>{{ client.last_name }}</td>
+          <td>{{ client.phone_number }}</td>
+          <td>{{ client.email }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
